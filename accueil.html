@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Accueil - 𝓡7𝓩</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+:root{--bg-dark:#0d0d0d;--accent-purple:#7c5cff;--accent-blue:#31d2f2;--accent-pink:#ff66b3;--glass:rgba(255,255,255,0.03);}
+body,html{margin:0;padding:0;font-family:Inter,sans-serif;background:var(--bg-dark);color:#e6eef8;}
+a{text-decoration:none;}
+.glass{background:var(--glass);backdrop-filter:blur(6px);border-radius:1rem;border:1px solid rgba(255,255,255,0.04);}
+.neon{background:linear-gradient(90deg,var(--accent-purple),var(--accent-blue),var(--accent-pink));-webkit-background-clip:text;background-clip:text;color:transparent;text-shadow:0 0 12px rgba(124,92,255,0.12);}
+.hover-glow:hover{box-shadow:0 10px 30px rgba(124,92,255,0.4);transform:translateY(-5px) scale(1.02);transition:0.3s;}
+.reveal{opacity:0;transform:translateY(30px);transition:all .8s ease-out;}
+.reveal.active{opacity:1;transform:none;}
+.menu-btn{display:none;}
+@media(max-width:768px){.desktop-nav{display:none;}.menu-btn{display:block;cursor:pointer;}.mobile-nav{display:none;flex-direction:column;gap:1rem;margin-top:1rem;}.mobile-nav.active{display:flex;}}
+</style>
+</head>
+<body>
+<header class="fixed top-0 left-0 w-full z-50 glass flex justify-between items-center px-6 py-4">
+<div class="text-2xl neon font-bold">𝓡7𝓩</div>
+<nav>
+<div class="desktop-nav flex gap-4 text-sm">
+<a href="accueil.html" class="hover-glow">Accueil</a>
+<a href="projet.html" class="hover-glow">Projets</a>
+<a href="game.html" class="hover-glow">Playground</a>
+<a href="contact.html" class="hover-glow">Contact</a>
+</div>
+<div class="menu-btn text-white" onclick="toggleMenu()">☰</div>
+<div class="mobile-nav glass p-4 rounded-lg" id="mobileMenu">
+<a href="accueil.html" class="hover-glow">Accueil</a>
+<a href="projet.html" class="hover-glow">Projets</a>
+<a href="game.html" class="hover-glow">Playground</a>
+<a href="contact.html" class="hover-glow">Contact</a>
+</div>
+</nav>
+</header>
+<main class="mt-20 px-6">
+<h1 class="text-5xl font-extrabold neon reveal">Bienvenue sur le Portfolio de 𝓡7𝓩</h1>
+<p class="mt-4 text-slate-300 reveal">Développeur pour VekoJS, AlfyCore, sites web, bots Discord et projets futuristes.</p>
+</main>
+<script>
+function toggleMenu(){document.getElementById('mobileMenu').classList.toggle('active');}
+const reveals=document.querySelectorAll('.reveal');window.addEventListener('scroll',()=>{reveals.forEach(el=>{if(el.getBoundingClientRect().top<window.innerHeight-100){el.classList.add('active');}});});
+</script>
+</body>
+</html>
